@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="currencyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurrencyXchange</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Background Image */
+        body {
+            background: url('assets/dark.jpg') no-repeat center center/cover;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .button {
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Currency Converter App -->
+    <div class="glass-card w-full max-w-md text-center" ng-controller="CurrencyController">
+        <h1 class="text-3xl font-bold text-black mb-6">CurrencyXchange</h1>
+
+        <!-- Amount Input -->
+        <div class="relative mb-6">
+            <input type="number" ng-model="amount" 
+                   class="w-full p-3 border rounded-lg bg-white/90 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                   placeholder="Enter amount">
+            <i class="fas fa-coins absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+        </div>
+
+        <!-- Currency Selection -->
+        <div class="flex flex-col space-y-4 mb-6">
+            <div class="flex items-center space-x-2">
+                <select ng-model="fromCurrency" ng-options="currency for (currency, rate) in exchangeRates" 
+                        class="flex-1 p-2 border rounded-lg bg-white/90 text-gray-700">
+                </select>
+                <i class="fas fa-flag text-gray-200"></i>
+            </div>
+            
+            <button class="p-3 bg-blue-500 text-white rounded-lg button hover:bg-blue-600" 
+                    ng-click="swapCurrencies()">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+
+            <div class="flex items-center space-x-2">
+                <select ng-model="toCurrency" ng-options="currency for (currency, rate) in exchangeRates" 
+                        class="flex-1 p-2 border rounded-lg bg-white/90 text-gray-700">
+                </select>
+                <i class="fas fa-flag text-gray-200"></i>
+            </div>
+        </div>
+
+        <!-- Convert Button -->
+        <button class="w-full p-3 bg-green-500 text-white rounded-lg button hover:bg-green-600 mb-6" 
+                ng-click="convertCurrency()">
+            Convert
+        </button>
+
+        <!-- Converted Amount -->
+        <div class="bg-white/20 p-4 rounded-lg">
+            <h2 class="text-2xl font-bold text-black">
+                {{ convertedAmount | number:2 }} {{ toCurrency }}
+            </h2>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div ng-show="loading" class="mt-4">
+            <i class="fas fa-spinner spinner text-black text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="./assets/config.js"></script>
+    <script src="./assets/app.js"></script>
+</body>
+</html>
