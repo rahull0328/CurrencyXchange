@@ -67,7 +67,7 @@
         <!-- Currency Selection -->
         <div class="flex flex-col space-y-4 mb-6">
             <div class="flex items-center space-x-2">
-                <select ng-model="fromCurrency" ng-options="currency for (currency, rate) in exchangeRates" 
+                <select ng-model="fromCurrency" ng-options="currency as currency for (currency, rate) in exchangeRates" 
                         class="flex-1 p-2 border rounded-lg bg-white/90 text-gray-700">
                 </select>
                 <i class="fas fa-flag text-gray-200"></i>
@@ -79,7 +79,7 @@
             </button>
 
             <div class="flex items-center space-x-2">
-                <select ng-model="toCurrency" ng-options="currency for (currency, rate) in exchangeRates" 
+                <select ng-model="toCurrency" ng-options="currency as currency for (currency, rate) in exchangeRates" 
                         class="flex-1 p-2 border rounded-lg bg-white/90 text-gray-700">
                 </select>
                 <i class="fas fa-flag text-gray-200"></i>
