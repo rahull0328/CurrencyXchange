@@ -8,7 +8,7 @@ app.controller('CurrencyController', function ($scope, $http) {
     $scope.convertedAmount = 0;
     $scope.loading = true;
 
-    const apiKey = '5fa8d2dfd87bd4e4e736655f'; // Replace with your actual API key
+    const apiKey = config.apiKey;
 
     // Fetch exchange rates
     function fetchExchangeRates() {
