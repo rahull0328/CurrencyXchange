@@ -34,3 +34,29 @@ CurrencyXchange is a powerful yet simple currency converter web application buil
 ```sh
 git clone https://github.com/rahull0328/CurrencyXchange.git
 cd CurrencyXchange
+```
+---
+
+## 🔒 Secure API Key Storage in `config.js`
+
+To keep your API key secure and prevent accidental exposure, follow these steps:
+
+## Step 1: Create `config.js`
+Inside your project folder, create a new file named **`config.js`** and add the following content:
+
+```javascript
+const config = {
+    apiKey: "YOUR_API_KEY_HERE"
+};
+```
+
+## Step 2: Add the following code to **`app.js`**
+```javascript
+const apiKey = config.apiKey;
+```
+
+## Step 3: Add **`config.js`** inside **`index.html`** before AngularJS Script Tag
+
+```html
+<script src="./assets/config.js"></script>
+```
