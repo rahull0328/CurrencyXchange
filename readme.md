@@ -23,8 +23,9 @@ CurrencyXchange is a powerful yet simple currency converter web application buil
 
 ## 🛠️ Tech Stack  
 
-- **Frontend:** AngularJS, HTML, CSS  
+- **Frontend:** AngularJS, HTML5, CSS3  
 - **API:** Exchange Rate API  
+- **Others:** JavaScript, Bootstrap (optional for styling)
 
 ---
 
@@ -58,5 +59,24 @@ const apiKey = config.apiKey;
 ## Step 3: Add **`config.js`** inside **`index.html`** before AngularJS Script Tag
 
 ```html
-<script src="./assets/config.js"></script>
+<script src="config.js"></script>
 ```
+
+---
+
+## 🙌 Contributing
+
+Contributions are welcome!
+Feel free to open issues, submit pull requests, or suggest new features.
+
+### To Contribute:
+
+- Fork the repo
+
+- Create your feature branch (git checkout -b feature/feature-name)
+
+- Commit your changes (git commit -am 'Add new feature')
+
+- Push to the branch (git push origin feature/feature-name)
+
+- Open a Pull Request
