@@ -80,3 +80,10 @@ Feel free to open issues, submit pull requests, or suggest new features.
 - Push to the branch (git push origin feature/feature-name)
 
 - Open a Pull Request
+
+
+📜 License
+
+This project is licensed under the MIT License – feel free to use, modify, and share!
+
+✨ Built By Rahul Mehta 
